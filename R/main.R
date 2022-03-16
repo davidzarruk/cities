@@ -1,5 +1,5 @@
 
-setwd('/home/david/Documents/cities/')
+setwd('/home/david/Documents/igc/')
 rm(list = ls())
 
 source('R/utils.R')
@@ -172,11 +172,17 @@ settings = list(tol=tol,
                 endo_Lr=endo_Lr)
 
 inversion_m_bl  = inversionModel_Eff(param,data,settings);
-data$A = inversion_m_bl$A;
-data$u = inversion_m_bl$u;
-data$u_init = inversion_m_bl$u;
-data$B = inversion_m_bl$B;
-settings$w_init = inversion_m_bl$w
+data.A = inversion_m_bl[[1]];
+data.u = inversion_m_bl[[2]];
+data.u_init = inversion_m_bl[[2]];
+data.B = inversion_m_bl[[3]];
+settings.w_init = inversion_m_bl[[4]];
+# results_m_bl  = solveModel1_Eff(param,data,settings);
+# namelist = c("metro", "monorail", "etrain", "all")
+# tau_shock = cat(3,tau_shock_metro,tau_shock_monorail,tau_shock_etrain,tau_shock_all);
+# a = 1-cellfun('isempty',strfind(namelist,name));
+# index = find(a);
 
-results_m_bl  = solveModel1_Eff(param,data,settings);
+
+
 
